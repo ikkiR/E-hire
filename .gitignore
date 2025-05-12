@@ -101,11 +101,11 @@ celerybeat-schedule.*
 .env 
 .venv 
 env/ 
-Ambiente_virtual/ 
+venv/ 
 ENV/ 
 env.bak/ 
 venv.bak/ 
-
+Ambiente_virtual/
 # mkdocs documentation 
 /site 
 
