@@ -1,3 +1,7 @@
 from django.contrib import admin
+from business import models
 
-# Register your models here.
+
+@admin.register(models.Empresa)
+class EmpresaAdmin( admin.ModelAdmin):
+    ...
