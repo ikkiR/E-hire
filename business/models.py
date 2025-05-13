@@ -18,6 +18,8 @@ class Empresa (models.Model):
     country = models.CharField(max_length=100)
     password = models.CharField(max_length=255)
     create_date = models.DateTimeField(default=timezone.now)
+    show = models.BooleanField(default=True)
+    picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
 
-    def _str_(self):
-        return self.companyName
+    def __str__(self) -> str:
+        return f'{self.tradingName}'
