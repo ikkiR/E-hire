@@ -1,0 +1,75 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'global/utils_css/faq.css' %}">
+{% endblock extra_css  %}
+
+
+{% block title %}
+    E-hire - FAQ
+{% endblock %}
+
+
+{% block button_action %}
+    <a href="{% url 'business:index' %}" class="login">Inicio</a>
+    <a href="#" class="signup">Vamos Conversar</a>
+{% endblock%}
+
+{% block content %}
+
+    <div class="faq-page-container">
+        <h1>Perguntas Frequentes (FAQ)</h1>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Como faço para contratar?</div>
+                <div class="faq-answer">
+                    <p>Você deve ir na página Home, lá terá a seção "Prestadores" que estarão ofertando o serviço que sua empresa precisa. Você pode entrar em contato diretamente com os prestadores que oferecem o serviço desejado.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Como faço para prestar serviço?</div>
+                <div class="faq-answer">
+                    <p>Na página Home, há uma seção chamada "Empresas" onde você encontrará empresas que estão contratando serviços do seu ramo. Você pode entrar em contato com elas e, se chegarem a um acordo, poderá prestar o serviço para a empresa.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">O que acontece se não me pagarem?</div>
+                <div class="faq-answer">
+                    <p>Caso isso ocorra, a empresa fica incapacitada de contratar e prestar serviços até que regularize o pagamento. Além disso, dependendo dos termos do acordo entre as partes, podem ser tomadas medidas legais para garantir o pagamento devido.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Como funciona o modelo de cobrança de mensalidade?</div>
+                <div class="faq-answer">
+                    <p>Nossa plataforma oferece três planos: mensal (US$ 1 por mês), trimestral (com desconto) e anual (com maior desconto). Você pode escolher o plano que melhor se adapta às suas necessidades.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Há alguma taxa adicional?</div>
+                <div class="faq-answer">
+                    <p>Sim, cobramos uma taxa de apenas 3% sobre os serviços contratados, que é a menor do mercado. Para comparação, outras plataformas cobram a partir de 15%, podendo chegar a 30%.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="copyright">
+        &copy; 2025 E-Hire. Todos os direitos reservados.
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'global/utils_js/faq.js' %}"></script>        
+{% endblock %}

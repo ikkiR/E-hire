@@ -1,0 +1,198 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+     <link rel="stylesheet" href="{% static 'global/utils_css/cadastro_content.css' %}">
+{% endblock %}
+
+{% block title %}
+    E-hire - Cadastre-se
+{% endblock %}
+
+
+
+{% block button_action %}
+    <a href="{% url 'business:index' %}" class="login">Inicio</a>
+    <a href="{% url 'business:login' %}" class="signup">Login</a>
+{% endblock%}
+
+
+
+{% block content %}
+    <div class="registration-container">
+        <div class="header-actions">
+            <button class="exit-btn" id="exitBtn">Sair</button>
+        </div>
+        
+        <div class="registration-header">
+            <h1>Cadastro de Empresa</h1>
+            <p>Preencha o formulário abaixo para se cadastrar em nossa plataforma B2B</p>
+        </div>
+        
+        <form class="registration-form" id="registrationForm">
+            <!-- Seção de Dados da Empresa -->
+            <div class="form-section">
+                <h2>Dados da Empresa</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyName">Razão Social *</label>
+                        <input type="text" id="companyName" name="companyName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tradingName">Nome Fantasia</label>
+                        <input type="text" id="tradingName" name="tradingName">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cnpj">CNPJ *</label>
+                        <input type="text" id="cnpj" name="cnpj" required>
+                        <div class="form-hint">Formato: 00.000.000/0000-00</div>
+                        <div class="error-message" id="cnpjError">CNPJ inválido</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="stateRegistration">Inscrição Estadual</label>
+                        <input type="text" id="stateRegistration" name="stateRegistration">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyEmail">E-mail Corporativo *</label>
+                        <input type="email" id="companyEmail" name="companyEmail" required>
+                        <div class="error-message" id="emailError">E-mail inválido</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="companyPhone">Telefone *</label>
+                        <input type="tel" id="companyPhone" name="companyPhone" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção de Endereço -->
+            <div class="form-section">
+                <h2>Endereço da Empresa</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cep">CEP *</label>
+                        <input type="text" id="cep" name="cep" required>
+                        <div class="error-message" id="cepError">CEP inválido</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Logradouro *</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="number">Número *</label>
+                        <input type="text" id="number" name="number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="complement">Complemento</label>
+                        <input type="text" id="complement" name="complement">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="neighborhood">Bairro *</label>
+                        <input type="text" id="neighborhood" name="neighborhood" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">Cidade *</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">Estado *</label>
+                        <select id="state" name="state" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">País *</label>
+                        <input type="text" id="country" name="country" value="Brasil" readonly>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção de Acesso -->
+            <div class="form-section">
+                <h2>Dados de Acesso</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Senha *</label>
+                        <input type="password" id="password" name="password" required minlength="8">
+                        <div class="form-hint">Mínimo de 8 caracteres</div>
+                        <div class="error-message" id="passwordError">A senha deve ter pelo menos 8 caracteres</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Senha *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <div class="error-message" id="confirmPasswordError">As senhas não coincidem</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="terms" required> Eu li e aceito os <a href="#" target="_blank" style="color: #2563EB;">Termos de Uso</a> e <a href="#" target="_blank" style="color: #2563EB;">Política de Privacidade</a> *
+                        </label>
+                        <div class="error-message" id="termsError">Você deve aceitar os termos</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Finalizar Cadastro</button>
+        </form>
+        
+        <div class="login-link">
+            Já possui uma conta? <a href="{% url 'business:login' %}">Faça login</a>
+        </div>
+    </div>
+
+{% endblock  %}

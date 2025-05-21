@@ -1,5 +1,12 @@
 from django.db import models
 from django.utils import timezone
+from datetime import date
+
+class Categoria (models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f'{self.name}'
 
 class Empresa (models.Model):
     companyName = models.CharField(max_length=250)
@@ -23,3 +30,53 @@ class Empresa (models.Model):
 
     def __str__(self) -> str:
         return f'{self.tradingName}'
+
+
+
+class Servico (models.Model):
+    titulo = models.CharField(max_length=50)
+    descricao = models.TextField()
+    preco_estimado = models.DecimalField(max_digits=8, decimal_places=2)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
+    empresa = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True)
+    prazo_estimado = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f'{self.titulo}'
+
+
+class Proposta (models.Model):
+
+    status = [
+        ('PD', 'Pendente'),
+        ('AC', 'Aceita'),
+        ('RC', 'Recusada'),
+        ('FN', 'Finalizada'),
+    ]
+
+    servico = models.ForeignKey(Servico, on_delete=models.SET_NULL, null=True)
+    empresa_contratante = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, related_name='propostas_contratadas')
+    empresa_prestadora = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, related_name='propostas_prestadas')
+    data_proposta = models.DateField(default=date.today)
+    status = models.CharField(max_length=2, choices=status)
+    valor_negociado = models.DecimalField(max_digits=8,decimal_places=2)
+    prazo_negociado = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f"{self.servico.titulo} - {self.empresa_contratante.tradingName} x {self.empresa_prestadora.tradingName}" 
+
+
+class Avaliacao (models.Model):
+
+    Nota = [
+        (1, "1 - Péssimo"),
+        (2, "2 - Ruim"),
+        (3, "3 - Regular"),
+        (4, "4 - Bom"),
+        (5, "5 - Excelente"),
+    ]
+
+    proposta = models.ForeignKey(Proposta, on_delete=models.SET_NULL, null=True)
+    data_avaliazao = models.DateTimeField(default=timezone.now)
+    comentario = models.TextField()
+    nota = models.IntegerField(choices=Nota) 

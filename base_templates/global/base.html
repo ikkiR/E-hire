@@ -4,10 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}meu projeto{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <h1>Qualquer coisa</h1>
+     <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{% static 'global/images/e-HIRE.png' %}" alt="Logo da E-Hire">
+            </div>
+            <nav>
+                {% block nav %}
+                  
+                {% endblock %}
+            </nav>
+            <div class="auth-buttons">
+                {% block button_action %}
+                    aqui vai os butões
+                {% endblock %}
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+        aqui vai o conteúdo principal da página
+    {% endblock %}
+
+
+
+    <footer>
+        {% block footer %}
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src={% static 'global/images/e-HIRE.png'%} alt="E-Hire Logo">
+                    </div>
+                    <p>A E-Hire conecta empresas a profissionais talentosos em todo o mundo.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Ajuda</h4>
+                    <ul>
+                        <li><a href="{% url 'business:FAQ' %}">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>E-mail: e-hire.contato@gmail.com</li>
+                        <li>Telefone: (11) 99999-9999</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 E-Hire. Todos os direitos reservados.
+            </div>
+        {% endblock%}
+    </footer>
+
+    {% block script %}
+
+    {% endblock %}
 </body>
 </html>

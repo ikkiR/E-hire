@@ -1,0 +1,59 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'global/utils_css/login_content.css' %}">
+{% endblock extra_css  %}
+
+
+{% block title %}
+    E-Hire - Login
+{% endblock %}
+
+
+{% block button_action %}
+    <a href="{% url 'business:index' %}" class="login">Inicio</a>
+    <a href="{% url 'business:cadastro_empresa' %}" class="signup">Cadastre-se</a>
+{% endblock%}
+
+
+{% block content %}
+    <div class="login-container">
+        <div class="header-actions">
+            <button class="exit-btn" id="exitBtn">Sair</button>
+        </div>
+        
+        <div class="logo">
+            <h1>E-Hire</h1>
+            <p>Acesso à plataforma profissional</p>
+        </div>
+        
+        <form class="login-form" id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+                <div class="cnpj-format">Formato: 00.000.000/0000-00</div>
+                <div class="error-message" id="cnpjError">CNPJ inválido</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <div class="error-message" id="passwordError">Senha incorreta</div>
+            </div>
+            
+            <button type="submit" class="login-button">Entrar</button>
+            
+            <div class="form-footer">
+                <a href="{% url 'business:RedefinirSenha' %}" id="forgotPassword">Esqueci minha senha</a>
+                <span>|</span>
+                <a href="{% url 'business:cadastro_empresa' %}" id="register">Cadastre sua empresa</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'global/utils_js/login.js' %}"></script>      
+{% endblock%}

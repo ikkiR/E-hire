@@ -1,0 +1,286 @@
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: static;
+    width: 100%;
+    z-index: 100;
+}
+
+
+
+/* Container principal que centraliza tudo na página */
+.registration-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding: 20px;
+    color: #333333;
+    line-height: 1.6;
+}
+
+
+
+/* Container do formulário de cadastro (aumentado e centralizado) */
+.registration-container {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    max-width: 900px; /* Aumentado de 800px para 900px */
+    width: 100%;
+    margin: 40px auto;
+    padding: 40px; /* Padding maior */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+/* Cabeçalho do registro */
+.registration-container .registration-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.registration-container .registration-header h1 {
+    color: #2563EB;
+    font-size: 32px; /* Tamanho aumentado */
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.registration-container .registration-header p {
+    color: #666666;
+    font-size: 16px;
+    display: block; /* Garante que fica abaixo do título */
+}
+
+/* Botão de saída */
+.registration-container .header-actions {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.registration-container .exit-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.registration-container .exit-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Seções do formulário */
+.registration-container .registration-form .form-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.registration-container .registration-form .form-section h2 {
+    color: #2563EB;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* Linhas do formulário */
+.registration-container .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px 25px;
+}
+
+/* Grupos de campos */
+.registration-container .form-group {
+    flex: 1;
+    min-width: 280px; /* Largura mínima aumentada */
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+
+.registration-container .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #555555;
+    font-size: 15px;
+}
+
+.registration-container .form-group input,
+.registration-container .form-group select,
+.registration-container .form-group textarea {
+    width: 100%;
+    padding: 14px 16px; /* Padding aumentado */
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #333333;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.registration-container .form-group input:focus,
+.registration-container .form-group select:focus,
+.registration-container .form-group textarea:focus {
+    border-color: #2563EB;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Texto de ajuda */
+.registration-container .form-hint {
+    font-size: 13px;
+    color: #777777;
+    margin-top: 8px;
+}
+
+/* Mensagens de erro */
+.registration-container .error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 8px;
+    display: none;
+}
+
+/* Botão de envio */
+.registration-container .submit-btn {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    margin: 40px auto 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    width: auto;
+}
+
+.registration-container .submit-btn:hover {
+    background-color: #1D4ED8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Link para login */
+.registration-container .login-link {
+    text-align: center;
+    margin-top: 30px;
+    color: #666666;
+    font-size: 15px;
+}
+
+.registration-container .login-link a {
+    color: #2563EB;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registration-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para selects múltiplos */
+.registration-container select[multiple] {
+    height: auto;
+    min-height: 120px;
+}
+
+.registration-container select[multiple] option {
+    padding: 10px 14px;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.registration-container select[multiple] option:hover {
+    background-color: #3B82F6;
+    color: white;
+}
+
+/* Estilização de checkboxes */
+.registration-container input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.registration-container input[type="checkbox"]:checked {
+    background-color: #2563EB;
+    border-color: #2563EB;
+}
+
+.registration-container input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .registration-page-container {
+        padding: 15px;
+    }
+    
+    .registration-container {
+        padding: 30px;
+    }
+    
+    .registration-container .form-row {
+        flex-direction: column;
+    }
+    
+    .registration-container .form-group {
+        min-width: 100%;
+    }
+    
+    .registration-container .header-actions {
+        position: static;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+    
+    .registration-container .registration-header h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-container {
+        padding: 25px 20px;
+    }
+    
+    .registration-container .registration-header h1 {
+        font-size: 24px;
+    }
+    
+    .registration-container .form-group input,
+    .registration-container .form-group select,
+    .registration-container .form-group textarea {
+        padding: 12px 14px;
+    }
+}
