@@ -25,6 +25,7 @@ class Empresa (models.Model):
     country = models.CharField(max_length=100)
     password = models.CharField(max_length=255)
     create_date = models.DateTimeField(default=timezone.now)
+    sobre = models.TextField(max_length=500, null=True)
     show = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
 
@@ -56,14 +57,16 @@ class Proposta (models.Model):
 
     servico = models.ForeignKey(Servico, on_delete=models.SET_NULL, null=True)
     empresa_contratante = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, related_name='propostas_contratadas')
-    empresa_prestadora = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, related_name='propostas_prestadas')
+    empresa_prestadora = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, related_name='propostas_prestadas', blank=True)
     data_proposta = models.DateField(default=date.today)
     status = models.CharField(max_length=2, choices=status)
-    valor_negociado = models.DecimalField(max_digits=8,decimal_places=2)
-    prazo_negociado = models.CharField(max_length=50)
+    valor_negociado = models.DecimalField(max_digits=8,decimal_places=2, blank=True, null=True)
+    prazo_negociado = models.CharField(max_length=50, blank=True, null=True)
+    descricao_proposta = models.TextField(blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"{self.servico.titulo} - {self.empresa_contratante.tradingName} x {self.empresa_prestadora.tradingName}" 
+        prestadora = self.empresa_prestadora.tradingName if self.empresa_prestadora else "Aguardando"
+        return f"{self.servico.titulo} - {self.empresa_contratante.tradingName} x {prestadora}" 
 
 
 class Avaliacao (models.Model):
@@ -77,6 +80,6 @@ class Avaliacao (models.Model):
     ]
 
     proposta = models.ForeignKey(Proposta, on_delete=models.SET_NULL, null=True)
-    data_avaliazao = models.DateTimeField(default=timezone.now)
+    data_avaliacao = models.DateTimeField(default=timezone.now)
     comentario = models.TextField()
     nota = models.IntegerField(choices=Nota) 

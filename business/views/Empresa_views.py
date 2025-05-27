@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from business.models import Empresa
+from business.models import Proposta
+
+
 
 def index (request):
     return render(
@@ -32,4 +36,21 @@ def redefinir_senha (request):
     return render(
         request,
         'business/redefinir_senha.html',
+    )
+
+
+def servicos (request):
+
+    empresas = Empresa.objects.all()
+    propostas_disponiveis = Proposta.objects.filter(empresa_prestadora__isnull=True)
+
+    context = {
+        'empresas' : empresas,
+        'propostas_disponiveis' : propostas_disponiveis,
+    }
+
+    return render(
+        request,
+        'business/servicos.html',
+        context,
     )

@@ -1,0 +1,124 @@
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'global/utils_css/index_content.css' %}">
+{% endblock extra_css  %}
+
+{% block content %}
+    <section class="hero" id="inicio">
+        <h1>Profissionais qualificados</h1>
+        <h2>prontos para trabalhar no seu projeto hoje mesmo</h2>
+        <p>
+            Conecte-se com milhares de profissionais no seu idioma e fuso horário. 
+            Pague de forma segura e desenvolva seus projetos de tecnologia, marketing digital, design e muito mais.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="cta-buttons">
+            <a href="#" class="cta-button primary-btn">Eu quero contratar uma empresa</a>
+            <a href="#" class="cta-button secondary-btn">Você quer trabalhar?</a>
+        </div>
+    </section>
+
+    <section class="categories" id="categorias">
+        <div class="section-title">
+            <h3>Principais categorias</h3>
+            <p>Encontre empresas especializadas em diversas áreas</p>
+        </div>
+
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <h4>Tecnologia</h4>
+                <p>Desenvolvedores, especialistas em TI e engenheiros de software</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📈</div>
+                <h4>Marketing Digital</h4>
+                <p>Especialistas em SEO, mídias sociais e publicidade online</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎨</div>
+                <h4>Design</h4>
+                <p>Designers gráficos, UI/UX e ilustradores</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📝</div>
+                <h4>Redação</h4>
+                <p>Redatores, editores e especialistas em conteúdo</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📊</div>
+                <h4>Consultoria</h4>
+                <p>Consultores empresariais, financeiros e estratégicos</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📱</div>
+                <h4>Mobile</h4>
+                <p>Desenvolvedores de apps iOS e Android</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎥</div>
+                <h4>Áudio e Vídeo</h4>
+                <p>Editores, produtores e animadores</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🌐</div>
+                <h4>Tradução</h4>
+                <p>Tradutores profissionais e intérpretes</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="ComoFunciona">
+        <div class="section-title">
+            <h3>Como funciona</h3>
+            <p>Contrate empresas ou encontre trabalhos em apenas 3 passos</p>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Crie seu perfil</h4>
+                <p>Cadastre-se como empresa ou prestador de serviços e complete seu perfil com suas habilidades ou necessidades.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Encontre a combinação perfeita</h4>
+                <p>Nossa plataforma conecta você aos melhores profissionais ou projetos baseado em suas especificações.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Comece a trabalhar</h4>
+                <p>Feche o acordo, trabalhe com segurança e pague ou receba através de nosso sistema protegido.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="section-title">
+            <h3>O que nossos clientes dizem</h3>
+            <p>Depoimentos de empresas que usam nossa plataforma</p>
+        </div>
+
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    "A E-Hire revolucionou a forma como contratamos serviços. Encontramos os melhores profissionais
+                    em tempo recorde e com total segurança."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <h5>Carlos Silva</h5>
+                        <p>CEO, TechSolutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

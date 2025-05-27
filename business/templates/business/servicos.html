@@ -1,0 +1,264 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'global/utils_css/servicos.css' %}">
+{% endblock extra_css %}
+
+{% block title %}
+    E-Hire - explore o mundo business
+{% endblock %}
+
+{% block nav %}
+    <ul>
+        <li><a href="#" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#" class="nav-link" data-section="companies">Solicitantes</a></li>
+        <li><a href="#" class="nav-link" data-section="providers">Prestadores</a></li>
+    </ul>
+{% endblock %}
+
+{% block button_action %}
+    <a href="#" class="login">Cadastrar novo serviço</a>
+    <a href="#" class="signup">perfil</a>
+{% endblock %}
+
+{% block content %}
+    <section id="home" class="home-section section-active">
+        <section class="hero">
+            <h1>Profissionais qualificados</h1>
+            <h2>prontos para trabalhar no seu projeto hoje mesmo</h2>
+            <p>
+                Conecte-se com milhares de profissionais no seu idioma e fuso horário.
+                Pague de forma segura e desenvolva seus projetos de tecnologia, marketing digital, design e muito mais.
+            </p>
+            <div class="divider"></div>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary-btn">Eu quero contratar uma empresa</a>
+                <a href="#" class="cta-button secondary-btn">Você quer trabalhar?</a>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="section-title">
+                <h3>Principais categorias</h3>
+                <p>Encontre empresas especializadas em diversas áreas</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">💻</div>
+                    <h4>Tecnologia</h4>
+                    <p>Desenvolvedores, especialistas em TI e engenheiros de software</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📈</div>
+                    <h4>Marketing Digital</h4>
+                    <p>Especialistas em SEO, mídias sociais e publicidade online</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎨</div>
+                    <h4>Design</h4>
+                    <p>Designers gráficos, UI/UX e ilustradores</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📝</div>
+                    <h4>Redação</h4>
+                    <p>Redatores, editores e especialistas em conteúdo</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📊</div>
+                    <h4>Consultoria</h4>
+                    <p>Consultores empresariais, financeiros e estratégicos</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📱</div>
+                    <h4>Mobile</h4>
+                    <p>Desenvolvedores de apps iOS e Android</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎥</div>
+                    <h4>Áudio e Vídeo</h4>
+                    <p>Editores, produtores e animadores</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌐</div>
+                    <h4>Tradução</h4>
+                    <p>Tradutores profissionais e intérpretes</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="section-title">
+                <h3>Como funciona</h3>
+                <p>Contrate empresas ou encontre trabalhos em apenas 3 passos</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Crie seu perfil</h4>
+                    <p>Cadastre-se como empresa ou prestador de serviços e complete seu perfil com suas habilidades ou necessidades.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Encontre a combinação perfeita</h4>
+                    <p>Nossa plataforma conecta você aos melhores profissionais ou projetos baseado em suas especificações.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Comece a trabalhar</h4>
+                    <p>Feche o acordo, trabalhe com segurança e pague ou receba através de nosso sistema protegido.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="section-title">
+                <h3>O que nossos clientes dizem</h3>
+                <p>Depoimentos de empresas que usam nossa plataforma</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "A E-Hire revolucionou a forma como contratamos serviços.
+                        Encontramos os melhores profissionais em tempo recorde e com total segurança."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h5>Carlos Silva</h5>
+                            <p>CEO, TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="companies" class="companies-section">
+        <div class="filter-bar">
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" placeholder="Buscar prestadores..." aria-label="Buscar prestadores">
+            </div>
+            <div class="filter-options">
+                <label for="category-filter-provider" class="sr-only">Filtrar por categoria</label>
+                <select id="category-filter-provider" class="filter-select" data-filter-type="category">
+                    <option value="all">Todas as categorias</option>
+                    <option value="technology">Tecnologia</option>
+                    <option value="design">Design</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="consulting">Consultoria</option>
+                </select>
+                <label for="availability-filter-provider" class="sr-only">Filtrar por disponibilidade</label>
+                <select id="availability-filter-provider" class="filter-select" data-filter-type="availability">
+                    <option value="all">Disponibilidade</option>
+                    <option value="available">Disponíveis agora</option>
+                    <option value="unavailable">Indisponíveis</option>
+                </select>
+                <label for="skill-filter-provider" class="sr-only">Filtrar por habilidade</label>
+                <select id="skill-filter-provider" class="filter-select" data-filter-type="skill">
+                    <option value="all">Todas as habilidades</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="react">React</option>
+                    <option value="figma">Figma</option>
+                    <option value="seo">SEO</option>
+                    <option value="nodejs">Node.js</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="sql">SQL</option>
+                    <option value="analytics">Analytics</option>
+                    <option value="docker">Docker</option>
+                    <option value="investimentos">Investimentos</option>
+                </select>
+                <label for="sort-filter-provider" class="sr-only">Ordenar por</label>
+                <select id="sort-filter-provider" class="filter-select" data-filter-type="sort">
+                    <option value="default">Ordenar por</option>
+                    <option value="rating-desc">Melhor avaliados</option>
+                    <option value="rating-asc">Pior avaliados</option>
+                </select>
+            </div>
+        </div>
+        <div class="cards-container">
+            {% for proposta in propostas_disponiveis %}
+                <div class="profile-card" data-category="technology" data-availability="available" data-rating="4.2">
+                    <div class="card-header"></div>
+                    <div class="card-avatar">
+                        {% if empresa.picture %}
+                            <img src="{{ empresa.picture.url }}" alt="Foto de perfil de {{ empresa.nome }}" loading="lazy">
+                        {% else %}
+                            <img src="{% static 'global/images/icone_perfil.avif' %}" alt="Logo padrão" loading="lazy">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-name">{{ proposta.servico }}</h3>
+                        <p class="card-bio">{{ proposta.descricao_proposta }}</p>
+                        <div class="card-skills">
+                            <span class="skill-tag">Desenvolvimento</span>
+                            <span class="skill-tag">TI</span>
+                            <span class="skill-tag">Cloud</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="card-button">Contatar</button>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="profile-card">
+                    <p>Sem serviços para esta categoria no momento. Volte mais tarde!</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="providers" class="providers-section">
+        <div class="filter-bar">
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" placeholder="Buscar prestadores..." aria-label="Buscar prestadores">
+            </div>
+            <div class="filter-options">
+                <label for="category-filter-provider" class="sr-only">Filtrar por categoria</label>
+                <select id="category-filter-provider" class="filter-select" data-filter-type="category">
+                    <option value="all">Todas as categorias</option>
+                    <option value="technology">Tecnologia</option>
+                    <option value="design">Design</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="consulting">Consultoria</option>
+                </select>
+            </div>
+        </div>
+        <div class="cards-container">
+            {% for empresa in empresas %}
+                <div class="profile-card" data-category="technology" data-availability="available" data-rating="4.9">
+                    <div class="card-header"></div>
+                    <div class="card-avatar">
+                        {% if empresa.picture %}
+                            <img src="{{ empresa.picture.url }}" alt="Foto de perfil de {{ empresa.tradingName }}" loading="lazy">
+                        {% else %}
+                            <img src="{% static 'global/images/icone_perfil.avif' %}" alt="Logo padrão" loading="lazy">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-name">{{ empresa.tradingName }}</h3>
+                        <p class="card-title">Desenvolvedor Full Stack</p>
+                        <p class="card-bio">{{ empresa.sobre }}</p>
+                        <div class="card-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-rating">5</div>
+                        <button class="card-button">Contratar</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'global/utils_js/servicos.js' %}"></script>
+{% endblock %}

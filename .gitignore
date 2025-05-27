@@ -109,6 +109,7 @@ Ambiente_virtual/
 Ambiente_Ehire/
 static/
 media/
+utils/
 project/local_settings.py
 # mkdocs documentation 
 /site 
