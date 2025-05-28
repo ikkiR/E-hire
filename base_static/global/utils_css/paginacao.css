@@ -1,0 +1,35 @@
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.step-links {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step-links a {
+    padding: 8px 14px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.step-links a:hover {
+    background-color: #2980b9;
+}
+
+.step-links .current {
+    padding: 8px 14px;
+    background-color: #ecf0f1;
+    color: #333;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}

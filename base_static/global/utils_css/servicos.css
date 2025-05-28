@@ -107,7 +107,6 @@ nav ul li a:hover {
 /* Seção Home */
 .home-section {
     padding: 8rem 5% 5rem;
-    display: none;
 }
 
 .hero {
@@ -581,22 +580,6 @@ footer {
     padding-right: 1rem; /* Espaço entre as estrelas e o botão */
 }
 
-.card-rating::before {
-    content: '★★★★★';
-    letter-spacing: 2px;
-    font-size: 1.2em;
-    background: linear-gradient(90deg, #FFD700 calc(var(--rating, 0) * 20%), #CCCCCC 0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    /* Fallback para navegadores que não suportam as propriedades acima */
-}
-
-.profile-card[data-rating] .card-rating {
-    --rating: attr(data-rating number, 0);
-    --rating-percentage: calc(var(--rating) / 5 * 100%);
-}
 
 .sr-only {
     position: absolute;

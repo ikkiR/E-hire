@@ -34,32 +34,31 @@ header {
 
 .navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
     max-width: 1400px;
     margin: 0 auto;
-    justify-content: space-between;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
 
 .logo img {
     height: 75px;
     margin-right: 10px;
 }
 
-nav{
-    text-align: center;
-}
-
 nav ul {
+    display: flex;
     list-style: none;
-    width: fit-content;
     padding: 10px;
-
 }
 
-nav ul li{
-    margin: auto;
+nav ul li {
+    margin-left: 2rem;
 }
 
 nav ul li a {

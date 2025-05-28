@@ -1,0 +1,23 @@
+{% load static %}
+{% block extra_css %}
+ <link rel="stylesheet" href="{% static 'global/utils_css/paginacao.css' %}">
+{% endblock %}
+{% if page_obj %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1 #providers">&laquo; Primeiro</a>
+                <a href="?page={{ page_obj.previous_page_number }}#providers">Anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}#providers">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}#providers">último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}
