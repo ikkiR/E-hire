@@ -58,3 +58,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         }, 500);
     }, 1500);
 });
+
+// Botão de sair
+document.getElementById('exitBtn').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
