@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from datetime import date
+from django.contrib.auth.models import AbstractUser
+
+
 
 class Categoria (models.Model):
     name = models.CharField(max_length=50)
@@ -83,3 +86,7 @@ class Avaliacao (models.Model):
     data_avaliacao = models.DateTimeField(default=timezone.now)
     comentario = models.TextField()
     nota = models.IntegerField(choices=Nota) 
+
+
+class Usuario(AbstractUser):
+    moeda = models.IntegerField(default=0)

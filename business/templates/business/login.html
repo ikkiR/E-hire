@@ -21,7 +21,9 @@
 {% block content %}
     <div class="login-container">
         <div class="header-actions">
-            <button class="exit-btn" id="exitBtn">Sair</button>
+            <a href="{% url 'business:index' %}">
+                <button class="exit-btn" id="exitBtn">Sair</button>
+            </a>
         </div>
         
         <div class="logo">
