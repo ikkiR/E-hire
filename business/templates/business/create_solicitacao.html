@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-hire - nova solicitação</title>
+    <link rel="stylesheet" href="{% static 'global/utils_css/create_solicitacao.css' %}">
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img src="{% static 'global/images/e-HIRE.png' %}" alt="Logo da E-Hire">
+        </div>
+        <nav class="nav-links">
+          <a href="#" class="nav-link active" data-section="negotiations">
+            <!-- SVG Ícone -->
+            Negociações
+          </a>
+        </nav>
+        <div class="auth-buttons">
+          <a href="{% url 'business:servicos' %}" class="btn btn-outline" id="logoutBtn">
+            <!-- SVG Ícone -->
+            Voltar
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="negotiations" class="section active">
+        <div id="new-negotiation">
+          <div class="dashboard-header">
+            <div>
+              <h1 class="dashboard-title">Nova Solicitação</h1>
+              <p class="dashboard-subtitle">
+                Cadastre uma nova solicitação de serviço para empresas parceiras
+              </p>
+            </div>
+          </div>
+
+          <div class="service-form-container">
+            <h2 class="form-title">Informações da Solicitação</h2>
+
+            <!-- Correção: form aberto aqui -->
+            <form action="" method ="POST">
+              {% csrf_token %}
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label">Título do Serviço *</label>
+                  {{form.titulo}}
+                  {{form.titulo.errors}} 
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Categoria *</label>
+                  {{form.categoria}}
+                  {{form.categoria.errors}}   
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Orçamento Estimado</label>
+                  {{form.preco_estimado}}
+                  {{form.preco_estimado.errors}} 
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Prazo Desejado (máximo)</label>
+                  {{form.prazo_estimado}}
+                  {{form.prazo_estimado.errors}} 
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label">Descrição Rápida *</label>
+                  {{form.descricao_rapida}}
+                  {{form.descricao_rapida.errors}} 
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label">Descrição Detalhada *</label>
+                  {{form.descricao_detalhada}}
+                  {{form.descricao_detalhada.errors}} 
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-cancel" id="cancelBtn">Cancelar</button>
+                <button type="submit" class="btn btn-primary" id="submitRequestBtn">Enviar Solicitação</button>
+              </div>
+            </form>
+            <!-- form fechado corretamente aqui -->
+          </div>
+        </div>
+
+        <!-- Seção de Solicitações Cadastradas -->
+        <div id="requests-section" style="margin-top: 4rem">
+          <div class="dashboard-header">
+            <div>
+              <h1 class="dashboard-title">Minhas Solicitações</h1>
+              <p class="dashboard-subtitle">
+                Visualize e gerencie todas as suas solicitações de serviço
+              </p>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <div class="tab active">Todas</div>
+            <div class="tab">Ativas</div>
+            <div class="tab">Concluídas</div>
+          </div>
+
+          <div class="requests-container">
+            <div class="requests-list" id="requestsList">
+              <div class="empty-state">
+                <div class="empty-state-icon">📭</div>
+                <h3>Nenhuma solicitação encontrada</h3>
+                <p>Você ainda não cadastrou nenhuma solicitação de serviço.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

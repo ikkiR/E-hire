@@ -1,5 +1,6 @@
 from django.contrib import admin
 from business import models
+from django.contrib.auth.admin import UserAdmin
 
 
 
@@ -15,14 +16,14 @@ class CategoriaAdmin (admin.ModelAdmin):
 
 
 @admin.register(models.Empresa)
-class EmpresaAdmin( admin.ModelAdmin):
-    list_display = 'id','tradingName', 'cnpj', 'companyEmail', 'companyPhone', 'city', 'country',
+class EmpresaAdmin(admin.ModelAdmin):
+    list_display = 'id','companyName', 'cnpj', 'companyEmail', 'companyPhone', 'city', 'country',
     ordering = '-id',
     list_filter = 'create_date',
-    search_fields = 'id', 'trandingName', 'cnjp',
+    search_fields = 'id', 'companyName', 'cnjp',
     list_per_page = 10
     list_max_show_all = 200
-    list_display_links = 'id', 'tradingName',
+    list_display_links = 'id', 'companyName',
 
 
 @admin.register(models.Servico)

@@ -172,5 +172,32 @@ footer {
 
 
 
+.message {
+  max-width: 600px;
+  margin: 32px auto 0 auto; /* margem topo: 32px, horizontal centralizado, zero embaixo */
+  padding: 24px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
+.message.success {
+  background: rgba(0, 255, 0, 0.3);
+  border: 1px solid rgba(0, 255, 0, 90%);
+}
+
+.message.error {
+  background: rgba(255, 0, 0, 0.3);
+  border: 1px solid rgba(255, 0, 0, 90%);
+}
+
+.message.warning {
+  background: rgba(255, 255, 0, 0.3);
+  border: 1px solid rgba(255, 255, 0, 90%);
+}
+
+.message.info {
+  background: rgba(0, 0, 255, 0.3);
+  border: 1px solid rgba(0, 0, 255, 0.3);
+}
 

@@ -12,14 +12,14 @@
 
 {% block nav %}
     <ul>
-        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
-        <li><a href="#companies" class="nav-link" data-section="companies">Solicitantes</a></li>
-        <li><a href="#providers" class="nav-link" data-section="providers">Prestadores</a></li>
+        <li><a href="{% url 'business:servicos' %}" class="nav-link">Home</a></li>
+        <li><a href="{% url 'business:solicitacao' %}" class="nav-link">Solicitantes</a></li>
+        <li><a href="{% url 'business:empresas' %}" class="nav-link">Prestadores</a></li>
     </ul>
 {% endblock %}
 
 {% block button_action %}
-    <a href="#" class="login">Cadastrar novo serviço</a>
+    <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
     <a href="#" class="signup">perfil</a>
 {% endblock %}
 
@@ -34,8 +34,8 @@
             </p>
             <div class="divider"></div>
             <div class="cta-buttons">
-                <a href="#" class="cta-button primary-btn">Eu quero contratar uma empresa</a>
-                <a href="#" class="cta-button secondary-btn">Você quer trabalhar?</a>
+                <a href="{% url 'business:nova_solicitacao' %}" class="cta-button primary-btn">Eu quero contratar uma empresa</a>
+                <a href="{% url 'business:solicitacao' %}" class="cta-button secondary-btn">Você quer trabalhar?</a>
             </div>
         </section>
 
@@ -135,131 +135,6 @@
         </section>
     </section>
 
-    <section id="companies" class="companies-section">
-        <div class="filter-bar">
-            <div class="search-box">
-                <span class="search-icon">⌕</span>
-                <input type="text" placeholder="Buscar prestadores..." aria-label="Buscar prestadores">
-            </div>
-            <div class="filter-options">
-                <label for="category-filter-provider" class="sr-only">Filtrar por categoria</label>
-                <select id="category-filter-provider" class="filter-select" data-filter-type="category">
-                    <option value="all">Todas as categorias</option>
-                    <option value="technology">Tecnologia</option>
-                    <option value="design">Design</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="consulting">Consultoria</option>
-                </select>
-                <label for="availability-filter-provider" class="sr-only">Filtrar por disponibilidade</label>
-                <select id="availability-filter-provider" class="filter-select" data-filter-type="availability">
-                    <option value="all">Disponibilidade</option>
-                    <option value="available">Disponíveis agora</option>
-                    <option value="unavailable">Indisponíveis</option>
-                </select>
-                <label for="skill-filter-provider" class="sr-only">Filtrar por habilidade</label>
-                <select id="skill-filter-provider" class="filter-select" data-filter-type="skill">
-                    <option value="all">Todas as habilidades</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="react">React</option>
-                    <option value="figma">Figma</option>
-                    <option value="seo">SEO</option>
-                    <option value="nodejs">Node.js</option>
-                    <option value="typescript">TypeScript</option>
-                    <option value="sql">SQL</option>
-                    <option value="analytics">Analytics</option>
-                    <option value="docker">Docker</option>
-                    <option value="investimentos">Investimentos</option>
-                </select>
-                <label for="sort-filter-provider" class="sr-only">Ordenar por</label>
-                <select id="sort-filter-provider" class="filter-select" data-filter-type="sort">
-                    <option value="default">Ordenar por</option>
-                    <option value="rating-desc">Melhor avaliados</option>
-                    <option value="rating-asc">Pior avaliados</option>
-                </select>
-            </div>
-        </div>
-        <div class="cards-container">
-            {% for proposta in propostas_disponiveis %}
-                <div class="profile-card" data-category="technology" data-availability="available" data-rating="4.2">
-                    <div class="card-header"></div>
-                    <div class="card-avatar">
-                        {% if empresa.picture %}
-                            <img src="{{ empresa.picture.url }}" alt="Foto de perfil de {{ empresa.nome }}" loading="lazy">
-                        {% else %}
-                            <img src="{% static 'global/images/icone_perfil.avif' %}" alt="Logo padrão" loading="lazy">
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-name">{{ proposta.servico }}</h3>
-                        <p class="card-bio">{{ proposta.descricao_proposta }}</p>
-                        <div class="card-skills">
-                            <span class="skill-tag">Desenvolvimento</span>
-                            <span class="skill-tag">TI</span>
-                            <span class="skill-tag">Cloud</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="card-button">Contatar</button>
-                    </div>
-                </div>
-            {% empty %}
-                <div class="profile-card">
-                    <p>Sem serviços para esta categoria no momento. Volte mais tarde!</p>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section id="providers" class="providers-section">
-        <div class="filter-bar">
-            <div class="search-box">
-                <span class="search-icon">⌕</span>
-                <input type="text" placeholder="Buscar prestadores..." aria-label="Buscar prestadores">
-            </div>
-            <div class="filter-options">
-                <label for="category-filter-provider" class="sr-only">Filtrar por categoria</label>
-                <select id="category-filter-provider" class="filter-select" data-filter-type="category">
-                    <option value="all">Todas as categorias</option>
-                    <option value="technology">Tecnologia</option>
-                    <option value="design">Design</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="consulting">Consultoria</option>
-                </select>
-            </div>
-        </div>
-        <div class="cards-container">
-            {% for empresa in page_obj %}
-                <div class="profile-card" data-category="technology" data-availability="available" data-rating="4.9">
-                    <div class="card-header"></div>
-                    <div class="card-avatar">
-                        {% if empresa.picture %}
-                            <img src="{{ empresa.picture.url }}" alt="Foto de perfil de {{ empresa.tradingName }}" loading="lazy">
-                        {% else %}
-                            <img src="{% static 'global/images/icone_perfil.avif' %}" alt="Logo padrão" loading="lazy">
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-name">{{ empresa.tradingName }}</h3>
-                        <p class="card-title">Desenvolvedor Full Stack</p>
-                        <p class="card-bio">{{ empresa.sobre }}</p>
-                        <div class="card-skills">
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">SQL</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="card-rating">{{ media_avaliacoes|get_item:empresa.id|default:"0.0" }}</div>{% comment "" %}essa linha chama um filtro que foi criado por mim, onde ele pega a nota de todos os serviços de uma empresa e cria uma média para avaliação total da empresa{% endcomment %}
-                        <button class="card-button">Contratar</button>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-        {% include "global/paginacao.html" %}
-    </section>
 {% endblock %}
 
 {% block script %}
