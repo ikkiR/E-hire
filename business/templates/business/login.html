@@ -26,6 +26,7 @@
 
 
 {% block content %}
+
     {% if  user.is_authenticated %}
         <div class="login-container">
             <div class="user-image">
@@ -40,6 +41,7 @@
                  Você está logado com o usuário {{ user.tradingName }}
                  <p class="login-message_logout">clique <a href="{% url "business:logout" %}">aqui</a> para fazer Logout</p>
             </div>
+
         </div>
     {% else %}
         <div class="login-container">

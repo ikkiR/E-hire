@@ -3,6 +3,7 @@ from business import models
 from django.contrib.auth.admin import UserAdmin
 
 
+from django.contrib.auth.admin import UserAdmin
 
 @admin.register(models.Categoria)
 class CategoriaAdmin (admin.ModelAdmin):
@@ -55,3 +56,13 @@ class AvaliacaoAdmin (admin.ModelAdmin):
     list_per_page = 10
     list_max_show_all = 200
     list_display_links = 'id', "proposta",
+
+
+
+class UsuarioAdmin(UserAdmin):
+    fieldsets = UserAdmin.fieldsets + (
+        ("Carteira", {'fields': ('moeda',)}),
+    )
+    list_display = UserAdmin.list_display + ('moeda',)
+
+admin.site.register(models.Usuario, UsuarioAdmin)

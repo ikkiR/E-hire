@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from datetime import date
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+
+from django.contrib.auth.models import AbstractBaseUser, AbstractUser, PermissionsMixin, BaseUserManager
 
 # Manager de usuário customizado
 class EmpresaManager(BaseUserManager):
@@ -21,6 +22,7 @@ class EmpresaManager(BaseUserManager):
 
 # Categoria de serviços
 class Categoria(models.Model):
+
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -148,8 +150,12 @@ class Avaliacao(models.Model):
     proposta = models.ForeignKey(Proposta, on_delete=models.CASCADE, related_name="avaliacoes")  # Se proposta for excluída, exclui avaliação
     data_avaliacao = models.DateTimeField(default=timezone.now)
     comentario = models.TextField()
-    nota = models.IntegerField(choices=Nota)
 
-    def __str__(self):
+    nota = models.IntegerField(choices=Nota) 
+
+      def __str__(self):
         return f"Avaliação {self.nota} para {self.proposta}"
-   
+
+class Usuario(AbstractUser):
+    moeda = models.IntegerField(default=0)
+  
