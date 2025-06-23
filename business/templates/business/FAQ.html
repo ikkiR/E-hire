@@ -4,72 +4,99 @@
 
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'global/utils_css/faq.css' %}">
-{% endblock extra_css  %}
+<link rel="stylesheet" href="{% static 'global/utils_css/faq.css' %}">
+{% endblock extra_css %}
 
 
 {% block title %}
-    E-hire - FAQ
+E-hire - FAQ
 {% endblock %}
 
 
 {% block button_action %}
-    <a href="{% url 'business:index' %}" class="login">Inicio</a>
-    <a href="#" class="signup">Vamos Conversar</a>
+<a href="{% url 'business:index' %}" class="login">Inicio</a>
+<a href="#" class="signup">Vamos Conversar</a>
 {% endblock%}
 
 {% block content %}
 
-    <div class="faq-page-container">
-        <h1>Perguntas Frequentes (FAQ)</h1>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">Como faço para contratar?</div>
-                <div class="faq-answer">
-                    <p>Você deve ir na página Home, lá terá a seção "Prestadores" que estarão ofertando o serviço que sua empresa precisa. Você pode entrar em contato diretamente com os prestadores que oferecem o serviço desejado.</p>
-                </div>
+<div class="faq-page-container">
+    <h1>Perguntas Frequentes (FAQ)</h1>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">Como funciona o sistema de moedas da E-Hire?</div>
+            <div class="faq-answer">
+                <p>Nosso sistema utiliza moedas virtuais que são adquiridas dentro da plataforma. Cada moeda permite que
+                    você visualize os contatos de um cliente interessado no seu serviço ou publique uma solicitação de
+                    serviço. As moedas não têm prazo de validade e ficam disponíveis em sua conta até serem utilizadas.
+                </p>
             </div>
+        </div>
 
-            <div class="faq-item">
-                <div class="faq-question">Como faço para prestar serviço?</div>
-                <div class="faq-answer">
-                    <p>Na página Home, há uma seção chamada "Empresas" onde você encontrará empresas que estão contratando serviços do seu ramo. Você pode entrar em contato com elas e, se chegarem a um acordo, poderá prestar o serviço para a empresa.</p>
-                </div>
+        <div class="faq-item">
+            <div class="faq-question">Como posso comprar moedas na plataforma?</div>
+            <div class="faq-answer">
+                <p>Você pode comprar pacotes de moedas diretamente na sua área de usuário, onde oferecemos diferentes
+                    opções de quantidade com descontos progressivos para pacotes maiores. O pagamento pode ser feito via
+                    cartão de crédito, PIX ou boleto bancário.</p>
             </div>
+        </div>
 
-            <div class="faq-item">
-                <div class="faq-question">O que acontece se não me pagarem?</div>
-                <div class="faq-answer">
-                    <p>Caso isso ocorra, a empresa fica incapacitada de contratar e prestar serviços até que regularize o pagamento. Além disso, dependendo dos termos do acordo entre as partes, podem ser tomadas medidas legais para garantir o pagamento devido.</p>
-                </div>
+        <div class="faq-item">
+            <div class="faq-question">Posso receber reembolso pelas moedas não utilizadas?</div>
+            <div class="faq-answer">
+                <p>As moedas adquiridas não são reembolsáveis em dinheiro, porém elas permanecem disponíveis em sua
+                    conta indefinidamente até serem utilizadas. Você pode usá-las a qualquer momento para visualizar
+                    contatos de clientes ou publicar solicitações de serviço.</p>
             </div>
+        </div>
 
-            <div class="faq-item">
-                <div class="faq-question">Como funciona o modelo de cobrança de mensalidade?</div>
-                <div class="faq-answer">
-                    <p>Nossa plataforma oferece três planos: mensal (US$ 1 por mês), trimestral (com desconto) e anual (com maior desconto). Você pode escolher o plano que melhor se adapta às suas necessidades.</p>
-                </div>
+        <div class="faq-item">
+            <div class="faq-question">Existe algum limite para compra ou uso de moedas?</div>
+            <div class="faq-answer">
+                <p>Não há limites para a quantidade de moedas que você pode adquirir ou utilizar. Você pode comprar e
+                    usar moedas conforme sua necessidade, sem preocupação com prazos de validade.</p>
             </div>
+        </div>
 
-            <div class="faq-item">
-                <div class="faq-question">Há alguma taxa adicional?</div>
-                <div class="faq-answer">
-                    <p>Sim, cobramos uma taxa de apenas 3% sobre os serviços contratados, que é a menor do mercado. Para comparação, outras plataformas cobram a partir de 15%, podendo chegar a 30%.</p>
-                </div>
+        <div class="faq-item">
+            <div class="faq-question">Como faço para contratar?</div>
+            <div class="faq-answer">
+                <p>Você deve ir na página Home, lá terá a seção "Prestadores" que estarão ofertando o serviço que sua
+                    empresa precisa. Você pode entrar em contato diretamente com os prestadores que oferecem o serviço
+                    desejado utilizando suas moedas para acessar os contatos.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Como faço para prestar serviço?</div>
+            <div class="faq-answer">
+                <p>Na página Home, há uma seção chamada "Empresas" onde você encontrará empresas que estão contratando
+                    serviços do seu ramo. Você pode usar moedas para visualizar os contatos dessas empresas e, se
+                    chegarem a um acordo, poderá prestar o serviço.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">O que acontece se não me pagarem?</div>
+            <div class="faq-answer">
+                <p>Caso isso ocorra, a empresa fica incapacitada de contratar e prestar serviços até que regularize o
+                    pagamento. Além disso, dependendo dos termos do acordo entre as partes, podem ser tomadas medidas
+                    legais para garantir o pagamento devido.</p>
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
+    {% endblock %}
 
-{% block footer %}
+    {% block footer %}
     <div class="copyright">
         &copy; 2025 E-Hire. Todos os direitos reservados.
     </div>
 
-{% endblock %}
+    {% endblock %}
 
 
-{% block script %}
-    <script src="{% static 'global/utils_js/faq.js' %}"></script>        
-{% endblock %}
+    {% block script %}
+    <script src="{% static 'global/utils_js/faq.js' %}"></script>
+    {% endblock %}

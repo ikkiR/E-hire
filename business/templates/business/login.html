@@ -13,47 +13,71 @@
 
 
 {% block button_action %}
-    <a href="{% url 'business:index' %}" class="login">Inicio</a>
-    <a href="{% url 'business:cadastro_empresa' %}" class="signup">Cadastre-se</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'business:servicos' %}" class="login">Inicio</a>
+        <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
+        <a href="#" class="signup">perfil</a>
+    {% else %}
+        <a href="{% url 'business:index' %}" class="login">Inicio</a>
+        <a href="{% url 'business:cadastro_empresa' %}" class="signup">Cadastre-se</a>
+    {% endif %}
+    
 {% endblock%}
 
 
 {% block content %}
-    <div class="login-container">
-        <div class="header-actions">
-            <a href="{% url 'business:index' %}">
+
+    {% if  user.is_authenticated %}
+        <div class="login-container">
+            <div class="user-image">
+            {% if user.picture %}
+                <img src="{{ user.picture.url }}" alt="Foto do usuário">
+            {% else %}
+                <img src="{% static "global/images/icone_perfil.avif" %}" alt="Foto do usuário">
+            {% endif %}
+            </div>
+
+            <div class="login-message">
+                 Você está logado com o usuário {{ user.tradingName }}
+                 <p class="login-message_logout">clique <a href="{% url "business:logout" %}">aqui</a> para fazer Logout</p>
+            </div>
+
+        </div>
+    {% else %}
+        <div class="login-container">
+            <div class="header-actions">
                 <button class="exit-btn" id="exitBtn">Sair</button>
-            </a>
+            </div>
+            
+            <div class="logo">
+                <h1>E-Hire</h1>
+                <p>Acesso à plataforma profissional</p>
+            </div>
+            
+            <form class="login-form" id="loginForm" action="" method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="companyEmail">E-mail Empresárial</label>
+                    {{form.username}}
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    {{form.password}}
+                </div>
+                
+                <button type="submit" class="login-button">Entrar</button>
+                
+                <div class="form-footer">
+                    <a href="{% url 'business:RedefinirSenha' %}" id="forgotPassword">Esqueci minha senha</a>
+                    <span>|</span>
+                    <a href="{% url 'business:cadastro_empresa' %}" id="register">Cadastre sua empresa</a>
+                </div>
+            </form>
         </div>
-        
-        <div class="logo">
-            <h1>E-Hire</h1>
-            <p>Acesso à plataforma profissional</p>
-        </div>
-        
-        <form class="login-form" id="loginForm" novalidate>
-            <div class="form-group">
-                <label for="cnpj">CNPJ</label>
-                <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
-                <div class="cnpj-format">Formato: 00.000.000/0000-00</div>
-                <div class="error-message" id="cnpjError">CNPJ inválido</div>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                <div class="error-message" id="passwordError">Senha incorreta</div>
-            </div>
-            
-            <button type="submit" class="login-button">Entrar</button>
-            
-            <div class="form-footer">
-                <a href="{% url 'business:RedefinirSenha' %}" id="forgotPassword">Esqueci minha senha</a>
-                <span>|</span>
-                <a href="{% url 'business:cadastro_empresa' %}" id="register">Cadastre sua empresa</a>
-            </div>
-        </form>
-    </div>
+    {% endif %}
+    
 {% endblock %}
 
 {% block script %}

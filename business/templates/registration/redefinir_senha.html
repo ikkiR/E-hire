@@ -1,0 +1,55 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'global/utils_css/redefinir_senha.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    E-Hire - Redefinir Senha
+{% endblock %}
+
+{% block button_action %}
+    <a href="{% url 'business:index' %}" class="login">Inicio</a>
+    <a href="{% url 'business:login' %}" class="login">login</a>
+    <a href="{% url 'business:cadastro_empresa' %}" class="signup">Cadastre-se</a>
+{% endblock%}
+
+
+
+{% block content %}
+    <div class="password-reset-wrapper">
+        <div class="password-reset-container">
+            <div class="logo">
+                <img src="{% static "global/images/e-HIRE.png" %}" alt="Logo da Empresa">
+            </div>
+            
+            <h1>Redefinir Senha</h1>
+            
+            <div class="step-indicator">
+                <div class="step active" id="step1-indicator">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Verificar E-mail</div>
+                </div>
+            </div>
+            
+            <div class="message" id="message"></div>
+            
+            <!-- Passo 1: Inserir e-mail -->
+            <div class="form-step active" id="step1">
+                <div class="form-group">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <label for="email">E-mail Corporativo</label>
+                        <div class="input-with-button">
+                            <input type="email" id="email" placeholder="seu.email@empresa.com">
+                            <button id="send-code-btn">Enviar Código</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock%}
+

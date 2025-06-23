@@ -1,0 +1,172 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "global/utils_css/credito.css" %}">
+{% endblock extra_css %}
+
+{% block title %}
+E-Hire - Compre seus Créditos
+{% endblock title %}
+
+{% block nav %}
+<ul>
+    <li><a href="{% url 'business:servicos' %}" class="nav-link">Home</a></li>
+    <li><a href="{% url 'business:solicitacao' %}" class="nav-link">Solicitações</a></li>
+    <li><a href="{% url 'business:empresas' %}" class="nav-link">Prestadores</a></li>
+</ul>
+{% endblock %}
+
+
+{% block button_action %}
+<a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
+<a href="{% url 'business:ver_perfil' %}" class="signup">perfil</a>
+{% endblock %}
+
+
+
+{% block content %}
+<main class="credits-container">
+    <div class="credits-header">
+        <h1 class="credits-title">Adquira Moedas para Seus Serviços</h1>
+        <p class="credits-subtitle">Escolha o plano que melhor atende às
+            suas necessidades e tenha acesso ilimitado aos melhores
+            profissionais para resolver suas demandas</p>
+    </div>
+
+    <div class="plans-container">
+        <!-- Plano 1 -->
+        <div class="plan-card">
+            <h3 class="plan-name">10 Moedas</h3>
+            <div class="plan-price">R$ 99</div>
+            <div class="plan-features">
+                <div class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    0 moedas adicionais
+                </div>
+            </div>
+            <button class="btn btn-outline plan-button">Selecionar Plano</button>
+        </div>
+
+        <!-- Plano 2 -->
+        <div class="plan-card">
+            <h3 class="plan-name">15 Moedas</h3>
+            <div class="plan-price">R$ 18,99</div>
+            <div class="plan-features">
+                <div class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    5 moedas adicionais
+                </div>
+            </div>
+            <button class="btn btn-outline plan-button">Selecionar Plano</button>
+        </div>
+
+        <!-- Plano 3 -->
+        <div class="plan-card">
+            <h3 class="plan-name">30 Moedas</h3>
+            <div class="plan-price">R$ 34,99</div>
+            <div class="plan-features">
+                <div class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    10 moedas adicionais
+                </div>
+            </div>
+            <button class="btn btn-outline plan-button">Selecionar Plano</button>
+        </div>
+
+        <!-- Plano 4 -->
+        <div class="plan-card">
+            <h3 class="plan-name">60 Mooedas</h3>
+            <div class="plan-price">R$ 72,99</div>
+            <div class="plan-features">
+                <div class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    15 moedas adicionais
+                </div>
+            </div>
+            <button class="btn btn-outline plan-button">Selecionar Plano</button>
+        </div>
+
+        <!-- Plano 5 -->
+        <div class="plan-card">
+            <h3 class="plan-name">85 Moedas</h3>
+            <div class="plan-price">R$ 119,99</div>
+            <div class="plan-features">
+                <div class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    20 moedas adicionais
+                </div>
+            </div>
+            <button class="btn btn-outline plan-button">Selecionar Plano</button>
+        </div>
+
+        <!-- Plano 6 -->
+        <div class="plan-card">
+            <h3 class="plan-name">110 Moedas</h3>
+            <div class="plan-price">R$ 129,99</div>
+            <div class="plan-features">
+                <div class="plan-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    29 moedas adicionais
+                </div>
+            </div>
+            <button class="btn btn-outline plan-button">Selecionar Plano</button>
+        </div>
+
+    </div>
+
+    <div class="payment-methods">
+        <h3 class="payment-title">Métodos de Pagamento Aceitos</h3>
+        <div class="payment-icons">
+            <img src="{% static "global/images/visa.svg" %}" class="payment-icon" alt="Visa">
+            <img src="{% static "global/images/mastercard.svg" %}" class="payment-icon" alt="Mastercard">
+            <img src="{% static "global/images/apple-pay.svg" %}" class="payment-icon" alt="Apple Pay">
+            <img src="{% static "global/images/google-pay.svg" %}" class="payment-icon" alt="Google Pay">
+            <img src="{% static "global/images/pix.svg" %}" class="payment-icon" alt="Pix">
+            <img src="{% static "global/images/paypal.svg" %}" class="payment-icon" alt="PayPal">
+        </div>
+        <p style="text-align: center; color: var(--secondary);">Todos
+            os pagamentos são processados de forma segura com
+            criptografia de 256 bits.</p>
+    </div>
+</main>
+
+<!-- Pop-up Modal para Pagamento PIX -->
+<div id="pixModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <span class="close-modal" id="closePixModal">&times;</span>
+        <h2>Pagamento via PIX</h2>
+        <p>Escaneie o QR Code abaixo para realizar o pagamento via PIX:</p>
+        <div class="qr-code-area">
+            <img src="{% static "global/images/qr-code.svg" %}" alt="QR Code PIX" class="qr-code-img">
+        </div>
+        <p style="margin-top: 1.5rem;">Caso a forma de pagamento seja diferente, clique no botão abaixo:</p>
+        <a href="pagamento-alternativo.html" class="btn btn-outline">Escolher outro método</a>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+{% block script %}
+    <script src="{% static 'global/utils_js/credito.js' %}"></script>
+{% endblock %}

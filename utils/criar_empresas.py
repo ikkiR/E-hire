@@ -69,11 +69,12 @@ servicos = []
 for _ in range(30):
     servico = Servico.objects.create(
         titulo=fake.catch_phrase(),
-        descricao=fake.paragraph(),
+        descricao_rapida=fake.paragraph(),
+        descricao_detalhada = fake.paragraph(),
         preco_estimado=Decimal(round(uniform(500, 20000), 2)),
         categoria=choice(categorias),
         empresa=choice(empresas),
-        prazo_estimado=f"{randint(5, 30)} dias"
+        prazo_estimado=date.today() + timedelta(days=randint(5, 30))
     )
     servicos.append(servico)
 

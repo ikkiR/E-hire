@@ -32,7 +32,8 @@
             <p>Preencha o formulário abaixo para se cadastrar em nossa plataforma B2B</p>
         </div>
         
-        <form class="registration-form" id="registrationForm">
+        <form class="registration-form" id="registrationForm" action="" method="POST" >
+            {% csrf_token %}
             <!-- Seção de Dados da Empresa -->
             <div class="form-section">
                 <h2>Dados da Empresa</h2>
@@ -40,39 +41,42 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="companyName">Razão Social *</label>
-                        <input type="text" id="companyName" name="companyName" required>
+                        {{form.companyName}}
+                        {{form.companyName.errors}} 
                     </div>
                     
                     <div class="form-group">
                         <label for="tradingName">Nome Fantasia</label>
-                        <input type="text" id="tradingName" name="tradingName">
+                        {{form.tradingName}}
+                        {{form.tradingName.errors}}
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="cnpj">CNPJ *</label>
-                        <input type="text" id="cnpj" name="cnpj" required>
-                        <div class="form-hint">Formato: 00.000.000/0000-00</div>
-                        <div class="error-message" id="cnpjError">CNPJ inválido</div>
+                        {{form.cnpj}}
+                        {{form.cnpj.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="stateRegistration">Inscrição Estadual</label>
-                        <input type="text" id="stateRegistration" name="stateRegistration">
+                        {{form.stateRegistration}}
+                        {{form.stateRegistration.errors}}
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="companyEmail">E-mail Corporativo *</label>
-                        <input type="email" id="companyEmail" name="companyEmail" required>
-                        <div class="error-message" id="emailError">E-mail inválido</div>
+                        {{form.companyEmail}}
+                        {{form.companyEmail.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="companyPhone">Telefone *</label>
-                        <input type="tel" id="companyPhone" name="companyPhone" required>
+                        {{form.companyPhone}}
+                        {{form.companyPhone.errors}}
                     </div>
                 </div>
             </div>
@@ -84,78 +88,56 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="cep">CEP *</label>
-                        <input type="text" id="cep" name="cep" required>
-                        <div class="error-message" id="cepError">CEP inválido</div>
+                        {{form.cep}}
+                        {{form.cep.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="address">Logradouro *</label>
-                        <input type="text" id="address" name="address" required>
+                        {{form.address}}
+                        {{form.address.errors}}
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="number">Número *</label>
-                        <input type="text" id="number" name="number" required>
+                        {{form.number}}
+                        {{form.number.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="complement">Complemento</label>
-                        <input type="text" id="complement" name="complement">
+                        {{form.complement}}
+                        {{form.complement.errors}}
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="neighborhood">Bairro *</label>
-                        <input type="text" id="neighborhood" name="neighborhood" required>
+                        {{form.neighborhood}}
+                        {{form.neighborhood.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="city">Cidade *</label>
-                        <input type="text" id="city" name="city" required>
+                        {{form.city}}
+                        {{form.city.errors}}
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="state">Estado *</label>
-                        <select id="state" name="state" required>
-                            <option value="">Selecione</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
+                        {{form.state}}
+                        {{form.state.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="country">País *</label>
-                        <input type="text" id="country" name="country" value="Brasil" readonly>
+                        {{form.country}}
+                        {{form.country.erros}}
                     </div>
                 </div>
             </div>
@@ -167,24 +149,25 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="password">Senha *</label>
-                        <input type="password" id="password" name="password" required minlength="8">
-                        <div class="form-hint">Mínimo de 8 caracteres</div>
-                        <div class="error-message" id="passwordError">A senha deve ter pelo menos 8 caracteres</div>
+                        {{form.password}}
+                        {{form.password.errors}}
                     </div>
                     
                     <div class="form-group">
                         <label for="confirmPassword">Confirmar Senha *</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                        <div class="error-message" id="confirmPasswordError">As senhas não coincidem</div>
+                        {{form.confirmar_senha}}
+                        {{form.confirmar_senha.errors}}
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="terms" required> Eu li e aceito os <a href="#" target="_blank" style="color: #2563EB;">Termos de Uso</a> e <a href="#" target="_blank" style="color: #2563EB;">Política de Privacidade</a> *
+                            {{form.aceitou_termos}} Eu li e aceito os 
+                            <a href="#" target="_blank" style="color: #2563EB;">Termos de Uso</a> e 
+                            <a href="#" target="_blank" style="color: #2563EB;">Política de Privacidade</a> 
+                            {{form.aceitou_termos.errors}}
                         </label>
-                        <div class="error-message" id="termsError">Você deve aceitar os termos</div>
                     </div>
                 </div>
             </div>

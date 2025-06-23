@@ -1,0 +1,124 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'global/utils_css/servicos.css' %}">
+{% endblock extra_css %}
+
+{% block title %}
+    E-Hire - solicitacoes
+{% endblock %}
+
+{% block nav %}
+    <ul>
+        <li><a href="{% url 'business:creditos' %}" class="nav-link">Créditos</a></li>
+        <li><a href="{% url 'business:servicos' %}" class="nav-link">Home</a></li>
+        <li><a href="{% url 'business:empresas' %}" class="nav-link">Prestadores</a></li>
+    </ul>
+{% endblock %}
+
+{% block button_action %}
+    <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
+    <a href="{% url 'business:ver_perfil' %}" class="signup">perfil</a>
+{% endblock %}
+ 
+{% block content %}
+ <section id="companies" class="companies-section">
+        <form method="GET" action="{% url 'business:SearchSolicitacao' %}">
+            <div class="filter-bar">
+                <div class="search-box">
+                    <span class="search-icon">⌕</span>
+                    <input type="search" placeholder="Buscar Serviços" name="q" value="{{request.GET.q.strip}}" aria-label="Buscar prestadores">
+                </div>
+        </form>
+                <div class="filter-options">
+                    <form method="get" action="{% url 'business:solicitacao' %}">
+                        <label for="category-filter-provider" class="sr-only">Filtrar por categoria</label>
+                        <select id="category-filter-provider" name="categoria" class="filter-select" data-filter-type="category">
+                            <option value="">Todas as categorias</option>
+                            {% for categoria in categorias %}
+                                <option value="{{categoria.id}}" {% if request.GET.categoria == categoria.id|stringformat:"s" %}selected{% endif %}>
+                                    {{categoria.name}}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <label for="availability-filter-provider" class="sr-only">Filtrar por disponibilidade</label>
+                        <select id="availability-filter-provider" name="disponibilidade" class="filter-select" data-filter-type="disponibilidade">
+                            <option value="">Disponibilidade</option>
+                            <option value="DISP" {% if request.GET.disponibilidade == 'DISP' %}selected{% endif %}>disponíveis agora</option>
+                            <option value="IND" {% if request.GET.disponibilidade == 'IND' %}selected{% endif %}>indisponível</option>
+                        </select>
+                        <button type="submit" class="filter-button">Filtrar</button>
+                    </form>
+                </div>           
+            </div>
+        <div class="cards-container">
+            {% for servico in page_obj  %}
+                <div class="profile-card" data-category="{{servico.categoria.slug}}" data-availability="{{servico.diponibilidade}}" data-rating="4.2">
+                    <div class="card-header"></div>
+                    <div class="card-avatar">
+                        {% if empresa.picture %}
+                            <img src="#" alt="Foto de perfil de {{ servico.nome }}" loading="lazy">
+                        {% else %}
+                            <img src="{% static 'global/images/icone_perfil.avif' %}" alt="Logo padrão" loading="lazy">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-name">{{ servico.titulo }}</h3>
+                        <p class="card-bio">{{ servico.descricao_rapida }}</p>
+                        <div class="card-skills">
+                            <span class="skill-tag">Desenvolvimento</span>
+                            <span class="skill-tag">TI</span>
+                            <span class="skill-tag">Cloud</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="card-button">Prestar Serviço</button>
+                    </div>
+                </div>
+
+                <div class="popup-container">
+                    <div class="popup-content">
+                        <div class="popup-header">
+                        <h3 class="popup-title">{{ servico.titulo }}</h3>
+                        <span class="close-btn">&times;</span>
+                        </div>
+
+                        <div class="popup-body">
+                        <div class="popup-field">
+                            <p><strong>Descrição rápida:</strong> {{ servico.descricao_rapida }}</p>
+                        </div>
+                        <div class="popup-field">
+                            <p><strong>Detalhes:</strong> {{ servico.descricao_detalhada }}</p>
+                        </div>
+                        <div class="popup-field">
+                            <p><strong>Orçamento estimado:</strong> R$ {{ servico.preco_estimado }}</p>
+                        </div>
+                        </div>
+
+                        <div class="popup-footer">
+                        <button class="popup-action-button">Enviar Proposta</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            {% empty %}
+                <div class="card_vazio">
+                    <p>Sem serviços para esta categoria no momento. Volte mais tarde!</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% include "global/paginacao.html" %}
+    </section>
+{% endblock content %}
+
+
+
+{% block script %}
+    <script src="{% static 'global/utils_js/servicos.js' %}"></script>
+{% endblock %}
+
+
