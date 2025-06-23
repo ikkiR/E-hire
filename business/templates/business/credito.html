@@ -22,6 +22,10 @@ E-Hire - Compre seus Créditos
 {% block button_action %}
 <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
 <a href="{% url 'business:ver_perfil' %}" class="signup">perfil</a>
+<div class="credit-display">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Moeda" class="coin-icon">
+    <span class="coin-amount">120</span>
+</div>
 {% endblock %}
 
 
@@ -39,7 +43,7 @@ E-Hire - Compre seus Créditos
         <!-- Plano 1 -->
         <div class="plan-card">
             <h3 class="plan-name">10 Moedas</h3>
-            <div class="plan-price">R$ 99</div>
+            <div class="plan-price">R$ 9,99</div>
             <div class="plan-features">
                 <div class="plan-feature">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -160,7 +164,7 @@ E-Hire - Compre seus Créditos
             <img src="{% static "global/images/qr-code.svg" %}" alt="QR Code PIX" class="qr-code-img">
         </div>
         <p style="margin-top: 1.5rem;">Caso a forma de pagamento seja diferente, clique no botão abaixo:</p>
-        <a href="pagamento-alternativo.html" class="btn btn-outline">Escolher outro método</a>
+        <a href="pagamento-alternativo.html"><button class="btn btn-outline plan-button">Escolha outro método</button></a>
     </div>
 </div>
 {% endblock content %}

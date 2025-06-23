@@ -6,6 +6,7 @@ from business.models import Categoria
 from django.db.models import Q
 from django.db.models import Avg
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 def index (request):
@@ -28,7 +29,7 @@ def redefinir_senha (request):
         'business/redefinir_senha.html',
     )
 
-
+@login_required(login_url='business:login')
 def servicos (request):
     return render(
         request,
@@ -36,7 +37,7 @@ def servicos (request):
     )
 
 
-
+@login_required(login_url='business:login')
 def search_solicitacoes(request):
 
     search_value = request.GET.get('q', '').strip()
@@ -78,7 +79,7 @@ def search_solicitacoes(request):
     return render(request, 'business/solicitacao.html', context)
 
 
-
+@login_required(login_url='business:login')
 def search_empresas(request):
 
     search_value = request.GET.get('q', '').strip()
@@ -124,7 +125,7 @@ def search_empresas(request):
 
 
 
-
+@login_required(login_url='business:login')
 def solicitacoes(request):
     empresas = Empresa.objects.all()
     categorias = Categoria.objects.all()
@@ -162,7 +163,7 @@ def solicitacoes(request):
 
     return render(request, 'business/solicitacao.html', context)
 
-
+@login_required(login_url='business:login')
 def empresas(request):
 
     empresas = Empresa.objects.all().order_by('-id')
@@ -197,7 +198,7 @@ def empresas(request):
         context,
     )
 
-
+@login_required(login_url='business:login')
 def creditos(request):
     return render(
         request,

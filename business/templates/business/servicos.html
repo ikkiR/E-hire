@@ -16,11 +16,16 @@
         <li><a href="{% url 'business:solicitacao' %}" class="nav-link">Solicitantes</a></li>
         <li><a href="{% url 'business:empresas' %}" class="nav-link">Prestadores</a></li>
     </ul>
+    
 {% endblock %}
 
 {% block button_action %}
     <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
     <a href="{% url 'business:ver_perfil' %}" class="signup">perfil</a>
+     <div class="credit-display">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Moeda" class="coin-icon">
+        <span class="coin-amount">120</span>
+    </div>
 {% endblock %}
 
 {% block content %}

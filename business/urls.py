@@ -14,6 +14,8 @@ urlpatterns = [
     path('servicos/solicitacao/', views.solicitacoes, name='solicitacao'),
     path('servicos/empresas/', views.empresas, name='empresas'),
     path('servicos/creditos/', views.creditos, name='creditos'),
+    path('RedefinirSenha/', views.redefinir_senha, name='redefinir_senha'),
+
 
     #campos de search
     path('search/solicitacao', views.search_solicitacoes, name='SearchSolicitacao'),
@@ -30,16 +32,16 @@ urlpatterns = [
 
     #redefinição de senha
     # página para solicitar email de recuperação
-    path('RedefinirSenha/', auth_views.PasswordResetView.as_view(template_name='registration/redefinir_senha.html'), name='redefinir_senha'),
+    # path('RedefinirSenha/', auth_views.PasswordResetView.as_view(template_name='registration/redefinir_senha.html'), name='redefinir_senha'),
 
-    # página informando que o email foi enviado
-    path('recuperar-senha/enviado/', auth_views.PasswordResetDoneView.as_view(template_name='registration/confirmacao_enviada.html'), name='confirmacao_enviada'),
+    # # página informando que o email foi enviado
+    # path('recuperar-senha/enviado/', auth_views.PasswordResetDoneView.as_view(template_name='registration/confirmacao_enviada.html'), name='confirmacao_enviada'),
 
-     # link enviado por email (com token)
-    path('redefinir-senha/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name = 'email_de_redefinicao.html'), name='email_de_confimacao'),
+    #  # link enviado por email (com token)
+    # path('redefinir-senha/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name = 'email_de_redefinicao.html'), name='email_de_confimacao'),
 
-    # página de confirmação final
-    path('redefinir-senha/concluido/', auth_views.PasswordResetCompleteView.as_view(template_name='confirmacao.html'), name='confirmarEmail'),
+    # # página de confirmação final
+    # path('redefinir-senha/concluido/', auth_views.PasswordResetCompleteView.as_view(template_name='confirmacao.html'), name='confirmarEmail'),
 
 
 ]

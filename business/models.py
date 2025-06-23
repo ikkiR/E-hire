@@ -77,6 +77,7 @@ class Empresa(AbstractBaseUser, PermissionsMixin):
     sobre = models.TextField(max_length=500, null=True)
     show = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
+    moedas = models.IntegerField(blank=True, null=True)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

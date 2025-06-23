@@ -7,6 +7,7 @@ from business.models import Empresa
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -34,7 +35,7 @@ def create_empresa(request):
 
 
 
-
+@login_required(login_url='business:login')
 def create_solicitacao(request):
     if request.method == 'POST':
         form = SolitacaoForms(request.POST)
@@ -87,11 +88,12 @@ def login (request):
         }
     )
 
-
+@login_required(login_url='business:login')
 def logout_view (request):
     auth.logout(request)
     return redirect('business:login')
 
+@login_required(login_url='business:login')
 def update_perfil(request):
     if request.method == 'POST':
         form = RegisterUpdateForm(request.POST, request.FILES, instance=request.user)
