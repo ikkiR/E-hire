@@ -12,15 +12,15 @@
 
 {% block nav %}
     <ul>
+        <li><a href="{% url 'business:creditos' %}" class="nav-link">Créditos</a></li>
         <li><a href="{% url 'business:servicos' %}" class="nav-link">Home</a></li>
-        <li><a href="{% url 'business:solicitacao' %}" class="nav-link">Solicitações</a></li>
         <li><a href="{% url 'business:empresas' %}" class="nav-link">Prestadores</a></li>
     </ul>
 {% endblock %}
 
 {% block button_action %}
     <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
-    <a href="#" class="signup">perfil</a>
+    <a href="{% url 'business:ver_perfil' %}" class="signup">perfil</a>
 {% endblock %}
  
 {% block content %}

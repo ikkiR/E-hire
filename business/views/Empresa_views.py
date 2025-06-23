@@ -164,6 +164,7 @@ def solicitacoes(request):
 
 
 def empresas(request):
+
     empresas = Empresa.objects.all().order_by('-id')
     ordenacao = request.GET.get('ordenacao', 'default')
 
@@ -194,4 +195,11 @@ def empresas(request):
         request,
         'business/empresas.html',
         context,
+    )
+
+
+def creditos(request):
+    return render(
+        request,
+        'business/credito.html',
     )

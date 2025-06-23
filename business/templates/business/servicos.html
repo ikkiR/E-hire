@@ -12,7 +12,7 @@
 
 {% block nav %}
     <ul>
-        <li><a href="{% url 'business:servicos' %}" class="nav-link">Home</a></li>
+        <li><a href="{% url 'business:creditos' %}" class="nav-link">Créditos</a></li>
         <li><a href="{% url 'business:solicitacao' %}" class="nav-link">Solicitantes</a></li>
         <li><a href="{% url 'business:empresas' %}" class="nav-link">Prestadores</a></li>
     </ul>
@@ -20,23 +20,24 @@
 
 {% block button_action %}
     <a href="{% url 'business:nova_solicitacao' %}" class="login">Cadastrar novo serviço</a>
-    <a href="#" class="signup">perfil</a>
+    <a href="{% url 'business:ver_perfil' %}" class="signup">perfil</a>
 {% endblock %}
 
 {% block content %}
     <section id="home" class="home-section section-active">
         <section class="hero">
-            <h1>Profissionais qualificados</h1>
-            <h2>prontos para trabalhar no seu projeto hoje mesmo</h2>
-            <p>
-                Conecte-se com milhares de profissionais no seu idioma e fuso horário.
-                Pague de forma segura e desenvolva seus projetos de tecnologia, marketing digital, design e muito mais.
-            </p>
-            <div class="divider"></div>
+            <h1>Obtenha Créditos</h1>
+            <h2>tenha acesso aos contatos de empresas que precisam dos seus serviços</h2>
+            <p>Conecte-se com milhares de empresas no seu idioma e fuso horário.
+                Pague de forma segura e desenvolva projetos de tecnologia, marketing digital, design e muito mais.</p>
+
             <div class="cta-buttons">
+                <a href="{% url 'business:creditos' %}" class="cta-button primary-btn">Comprar créditos</a>
                 <a href="{% url 'business:nova_solicitacao' %}" class="cta-button primary-btn">Eu quero contratar uma empresa</a>
                 <a href="{% url 'business:solicitacao' %}" class="cta-button secondary-btn">Você quer trabalhar?</a>
             </div>
+
+            <div class="divider"></div>
         </section>
 
         <section class="categories">

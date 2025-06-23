@@ -1,0 +1,403 @@
+:root {
+    --primary: #4a6bff;
+    --secondary: #6c757d;
+    --accent: #ff6b6b;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #28a745;
+    --primary-light: #cbd6ff;
+    --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background-color: white;
+    padding-top: 80px; /* Compensa o header fixo */
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link.active {
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-buttons a,
+.auth-buttons button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: var(--transition);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+}
+
+.auth-buttons .login {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.auth-buttons .login:hover,
+.auth-buttons .login:focus {
+    background-color: rgba(74, 107, 255, 0.1);
+}
+
+.auth-buttons .signup {
+    background: var(--primary);
+    color: white;
+}
+
+.auth-buttons .signup:hover,
+.auth-buttons .signup:focus {
+    background: #3a5bef;
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+main {
+    padding: 2rem 0;
+}
+
+/* Credits Section */
+.credits-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.credits-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.credits-title {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.credits-subtitle {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Plans Section */
+.plans-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.plan-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: var(--transition);
+    border: 2px solid #eee;
+    background: white;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-light);
+}
+
+.plan-card.popular {
+    border-color: var(--primary);
+    position: relative;
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.plan-price span {
+    font-size: 1rem;
+    color: var(--secondary);
+    font-weight: normal;
+}
+
+.plan-features {
+    margin-bottom: 2rem;
+}
+
+.plan-feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: var(--secondary);
+}
+
+.plan-feature svg {
+    margin-right: 0.5rem;
+    color: var(--success);
+    min-width: 20px;
+}
+
+.plan-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.plan-button:hover,
+.plan-button:focus {
+    background-color: #3a5bef;
+    transform: translateY(-2px);
+}
+
+/* Payment Section */
+.payment-methods {
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    background: white;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--dark);
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.payment-icon {
+    width: 60px;
+    height: 40px;
+    object-fit: contain;
+    filter: grayscale(30%);
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.payment-icon:hover,
+.payment-icon:focus {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ...existing code... */
+
+/* Modal PIX */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    max-width: 350px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    position: relative;
+    text-align: center;
+}
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+    color: var(--secondary);
+    cursor: pointer;
+    font-weight: bold;
+}
+.qr-code-area {
+    margin: 1.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+.qr-code-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fafafa;
+    padding: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .auth-buttons {
+        margin-top: 1rem;
+    }
+    
+    .plans-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .credits-title {
+        font-size: 1.8rem;
+    }
+    
+    .credits-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .payment-methods {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links ul li a:hover,
+    .footer-links ul li a:focus {
+        transform: none;
+    }
+}
